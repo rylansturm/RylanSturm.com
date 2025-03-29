@@ -1,15 +1,33 @@
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body {
+    background: #121212;
+}
+
+/* Hero Section */
 .hero {
     background-size: cover;
     background-attachment: fixed;
+    background-color: #1e1e1e;
     height: 80vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    border-radius: 15px;
-    padding: 10%;
-    margin: 10px 0px 25px 0px;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 5%;
+    margin: 20px 0;
+    text-align: center;
 }
 
+/* Text Alignment */
 .hero-right {
     text-align: right;
 }
@@ -18,64 +36,59 @@
     text-align: left;
 }
 
+/* Index Background */
 .index-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75)), url('../welcome.jpg');
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.index-content {
-    padding: 0 0 0 0;
+/* Content Padding */
+.index-content, .left-col, .right-col {
+    padding: 10px;
 }
 
-.left-col {
-    padding: 0 20px 0 0;
-}
-
-.right-col {
-    padding: 0 0 0 20px;
-}
-
+/* Contact Section */
 .contact-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.55)), url('../contact.jpg');
-    background-attachment: local;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .contact-text {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    color: #a0a0a0;
 }
 
-body, html {
-    height: 100%;
-}
-
-body {
-    background: linear-gradient(rgb(245, 240, 240), rgb(245, 240, 240));
-    background-attachment: fixed;
-}
-
+/* Navbar Icon */
 .navbar-icon {
     height: 25px;
 }
 
+/* Index Text */
 .index-text {
-    background: linear-gradient(rgb(72, 50, 35), rgb(125, 92, 64));
-    color: white;
-    border-radius: 15px;
-    font-size: 24px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    font-size: 20px;
     text-align: left;
-    padding: 3%;
-    margin: 0px;
+    padding: 20px;
+    margin: 10px 0;
 }
 
+/* Call to Action */
 .cta {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
-    margin: 10% 0 10% 0;
+    margin: 20px 0;
+    color: #a0a0a0;
 }
 
+/* Image Styling */
 .index-img {
     position: relative;
-    height: 500px;
+    height: 400px;
 }
 
 .index-img img {
@@ -85,28 +98,33 @@ body {
     transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
+/* Row Styling */
 .row {
     position: relative;
-    margin: 12px 0px 12px 0px;
+    margin: 20px 0;
+    display: flex;
     align-items: center;
 }
 
+/* Portfolio Section */
 .portfolio-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.55)), url('../WIP.jpg');
-    background-attachment: local;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
 }
 
+/* Footer */
 .pre-footer-wrapper {
     min-height: 100%;
 }
 
 footer {
-    position: relative;
-    height: 150px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    background-color: #1e1e1e;
+    color: #a0a0a0;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
 }

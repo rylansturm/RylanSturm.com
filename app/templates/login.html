@@ -3,12 +3,6 @@
 
 {% block app_content %}
     <h1>Sign In</h1>
-    <p>
-        Logging in is only really needed for myself (Rylan) in order to make changes.
-        If you've found your way here accidentally, and are worried you need an account,
-        you don't! Feel free to browse my current <a href={{ url_for('portfolio') }}>projects</a>,
-        or learn more <a href={{ url_for('about') }}>about me</a> without signing in.
-    </p>
     <div class="row">
         <div class="col-md-4">
             {{ wtf.render_form(form) }}

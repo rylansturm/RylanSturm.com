@@ -255,3 +255,8 @@ def store_visit(request, page_to):
         db.session.commit()
     except:
         pass
+
+
+@app.route("/games/wordle_solver")
+def wordle():
+    return render_template("games/wordle_solver.html", title="Wordle Solver")

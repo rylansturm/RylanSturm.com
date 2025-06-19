@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="hero hero-right index-bg">
+    <h1>Wordle Solver</h1>
+    <hr>
+</div>
+<div id="wordle-grid" class="wordle-grid">
+    {% for row in range(6) %}
+    <div class="wordle-row">
+        {% for col in range(5) %}
+        <div class="wordle-box" data-row="{{ row }}" data-col="{{ col }}"></div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const grid = document.getElementById("wordle-grid");
+        let currentRow = 0;
+        let currentCol = 0;
+
+        document.addEventListener("keydown", (event) => {
+            const key = event.key;
+
+            if (/^[a-zA-Z]$/.test(key)) {
+                if (currentRow == 5 && currentCol == 5) {
+                    return; // Prevent input if the grid is full
+                }
+                if (currentCol === 5) {
+                    currentRow++;
+                    currentCol = 0;
+                }
+                const box = grid.querySelector(
+                    `.wordle-box[data-row="${currentRow}"][data-col="${currentCol}"]`
+                );
+                box.textContent = key.toUpperCase();
+                currentCol++;
+            } else if (key === "Backspace") {
+                if (currentCol > 0) {
+                    currentCol--;
+                    const box = grid.querySelector(
+                        `.wordle-box[data-row="${currentRow}"][data-col="${currentCol}"]`
+                    );
+                    box.textContent = "";
+                    if (currentCol === 0 && currentRow > 0) {
+                        currentRow--;
+                        currentCol = 5;
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+<style>
+    .wordle-grid {
+        display: grid;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .wordle-row {
+        display: flex;
+        gap: 10px;
+    }
+
+    .wordle-box {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #fff;
+    }
+</style>
+{% endblock %}

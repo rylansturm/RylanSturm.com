@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+    <h1>Attractions</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.render_form(form) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Park List</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Park</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for attraction in attractions %}
+                        <tr>
+                            <td>{{ attraction.id }}</td>
+                            <td>{{ attraction.park.name }}</td>
+                            <td>{{ attraction.attraction_type.name }}</td>
+                            <td>{{ attraction.abbreviation }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

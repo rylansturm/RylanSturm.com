@@ -5,6 +5,8 @@ body, html {
     font-family: "Courier New", Courier, monospace;
     background-color: #121212;
     color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -118,13 +120,15 @@ body {
 
 /* Footer */
 .pre-footer-wrapper {
-    min-height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
     background-color: #1e1e1e;
     color: #a0a0a0;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     margin-top: auto;
 }

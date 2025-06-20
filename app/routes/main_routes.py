@@ -22,7 +22,6 @@ from werkzeug.urls import url_parse
 @app.route("/")
 @app.route("/index")
 def index():
-    store_visit(request, "index")
     return render_template("index.html", title="Home")
 
 
@@ -72,26 +71,22 @@ def register():
 
 @app.route("/about")
 def about():
-    store_visit(request, "about")
     return render_template("about.html", title="More About Rylan")
 
 
 @app.route("/contact")
 def contact():
-    store_visit(request, "contact")
     return render_template("contact.html", title="Contact Rylan")
 
 
 @app.route("/portfolio")
 def portfolio():
-    store_visit(request, "portfolio")
     projects = Project.query.all()
     return render_template("portfolio.html", title="Projects", projects=projects)
 
 
 @app.route("/project/<proj_num>")
 def project(proj_num):
-    store_visit(request, f"project{proj_num}")
     project = Project.query.filter_by(id=proj_num).first()
     updates = list(project.updates).copy()
     updates.sort(reverse=True)
@@ -226,35 +221,12 @@ def upload(filename):
 
 @app.route("/linkedin")
 def linkedin():
-    store_visit(request, "linkedin")
     return redirect("https://linkedin.com/in/rylan-sturm/")
 
 
 @app.route("/github")
 def github():
-    store_visit(request, "github")
     return redirect("https://github.com/rylansturm")
-
-
-def get_ip(req):
-    if req.environ.get("HTTP_X_FORWARDED_FOR") is None:
-        return req.environ["REMOTE_ADDR"]
-    else:
-        return req.environ["HTTP_X_FORWARDED_FOR"]
-
-
-def store_visit(request, page_to):
-    try:
-        ip = get_ip(request)
-        page_from = request.args.get("page_from")
-        visit = Visit()
-        visit.visitor_ip = ip
-        visit.page_to = page_to
-        visit.page_from = page_from
-        db.session.add(visit)
-        db.session.commit()
-    except:
-        pass
 
 
 @app.route("/games/wordle_solver")

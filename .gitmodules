@@ -1,0 +1,3 @@
+[submodule "AlphabeticalClock"]
+	path = AlphabeticalClock
+	url = git@github.com:rylansturm/AlphabeticalClock.git

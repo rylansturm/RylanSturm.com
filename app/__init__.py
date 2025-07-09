@@ -17,8 +17,8 @@ login = LoginManager(app)
 login.login_view = "login"
 bootstrap = Bootstrap(app)
 
-from app import disney_models, errors, models
-from app.routes import disney_routes, main_routes
+from app import disney_models, errors, models, routes
+# from app.routes import disney_routes, main_routes
 
 if not app.debug:
     if not os.path.exists("logs"):
